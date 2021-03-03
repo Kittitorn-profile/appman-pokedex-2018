@@ -1,27 +1,24 @@
-import React, { Component } from 'react'
-import './App.css'
+import React from "react";
+import "./App.css";
+import { CardItem, CardItemList } from "./components";
+import { cards } from "../src/static/cards.json";
+import search from "./search.png";
+import { Header, TabMenu, ComponentList } from "../src/layout";
 
-const COLORS = {
-  Psychic: "#f8a5c2",
-  Fighting: "#f0932b",
-  Fairy: "#c44569",
-  Normal: "#f6e58d",
-  Grass: "#badc58",
-  Metal: "#95afc0",
-  Water: "#3dc1d3",
-  Lightning: "#f9ca24",
-  Darkness: "#574b90",
-  Colorless: "#FFF",
-  Fire: "#eb4d4b"
+function App() {
+  const [cardsList, setCardsList] = React.useState([]);
+
+  React.useEffect(() => {
+    setCardsList(cards);
+  }, [cardsList]);
+
+  return (
+    <div className="App">
+      <Header />
+      <ComponentList />
+      <TabMenu />
+    </div>
+  );
 }
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-      </div>
-    )
-  }
-}
-
-export default App
+export default App;
